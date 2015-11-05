@@ -18,6 +18,8 @@ Scalaではこう書くだろう、を密に詰め込んでいます。コード
 How to run codes
 ----------------
 
+Requirements: installing [sbt](http://www.scala-sbt.org/) and [Java Runtime Environment](http://www.java.com/ja/).
+
 ```
 cd nlp100
 
