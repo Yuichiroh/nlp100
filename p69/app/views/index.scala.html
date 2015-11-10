@@ -1,0 +1,8 @@
+@main("Welcome to Play") {
+    @helper.form(action = routes.Application.find(), 'role -> "検索") {
+        <label><input type="text" id="artist" name="name" placeholder="アーティスト名"></label> <br/>
+        <label><input type="text" id="alias" name="alias" placeholder="アーティストの別名"></label> <br/>
+        <label><input type="text" id="tag" name="tag" placeholder="タグ"></label> <br/>
+        <input type="submit" value="検索">
+    }
+}

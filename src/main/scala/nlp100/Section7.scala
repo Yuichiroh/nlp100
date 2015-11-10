@@ -1,5 +1,7 @@
 package nlp100
 
+//MongoDBObject => DBO
+
 import scala.io.{Source, StdIn}
 
 /** Code for 言語処理100本ノック 2015 第7章: データベース
@@ -99,7 +101,7 @@ object P63 extends App {
     write()
   }
   if (options.isDefinedAt('search)) {
-    Console.err.println( s"""searching the full name of "${ options('search) }"""")
+    Console.err.println( s"""searching the full name of "${options('search)}"""")
     search(options('search))
   }
 
@@ -153,9 +155,10 @@ object P64 extends App {
 
   import com.mongodb.casbah.Imports.{MongoDBObject => DBO, _}
 
-  val mc = MongoClient("localhost", 27017)
-  val db = mc("nlp100_yuima")
-  val collection = db("artist")
+  //  val mc = MongoClient("localhost", 27017)
+  //  val db = mc("nlp100_yuima")
+  //  val collection = db("artist")
+  val collection = MongoClient("localhost", 27017)("nlp100_yuima")("artist")
 
   Seq("name", "aliases.name", "tags.value", "rating.value")
     .foreach(k => collection.createIndex(DBO(k -> 1)))
@@ -210,7 +213,11 @@ object P68 extends App {
     .map(_.get("name")) foreach println
 }
 
+/** ユーザから入力された検索条件に合致するアーティストの情報を表示するWebアプリケーションを作成せよ．
+  * アーティスト名，アーティストの別名，タグ等で検索条件を指定し，アーティスト情報のリストをレーティングの高い順などで整列して表示せよ． */
 object P69 extends App {
-  println("Problem 69 is not revealed yet.")
+  println("""Problem 69 is implemented as a Play application.""")
+  println("""Install Typesafe Activator and run the following command in the dir "p69":""")
+  println("""activator run""")
 }
 
