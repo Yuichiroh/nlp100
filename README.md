@@ -18,7 +18,17 @@ Scalaではこう書くだろう、を密に詰め込んでいます。コード
 How to run codes
 ----------------
 
-Requirements: installing [sbt](http://www.scala-sbt.org/) and [Java Runtime Environment](http://www.java.com/ja/).
+### Requirements 
+* [sbt](http://www.scala-sbt.org/) 
+* [Java Runtime Environment](http://www.java.com/ja/)
+* [MeCab](http://taku910.github.io/mecab/) (for Section 4)
+* [Gnuplot](http://www.gnuplot.info/) (for Section 4)
+* [CaboCha](http://taku910.github.io/cabocha/) (for Section 5)
+* [Graphviz](http://www.graphviz.org/) (for Section 6)
+* [Redis](http://redis.io/) (for Section 7)
+* [MongoDB](https://www.mongodb.org/) (for Section 7)
+* [Activator](https://www.typesafe.com/community/core-tools/activator-and-sbt) (for Section 7)
+* [Play 2](https://www.playframework.com/) (for Section 7)  
 
 ```
 cd nlp100
@@ -33,6 +43,10 @@ sbt -mem 2048 'runMain  nlp100.P1'
 # for programs not depending on external libraries
 sbt compile
 scala -cp .:resources:target/scala-2.11/classes nlp100.P1  
+
+# for problem 69
+cd p69
+activator run
 
 # for test
 sbt test
