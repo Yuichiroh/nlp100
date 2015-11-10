@@ -24,7 +24,7 @@ How to run codes
 * [MeCab](http://taku910.github.io/mecab/) (for Section 4)
 * [Gnuplot](http://www.gnuplot.info/) (for Section 4)
 * [CaboCha](http://taku910.github.io/cabocha/) (for Section 5)
-* [Graphviz](http://www.graphviz.org/) (for Section 6)
+* [Graphviz](http://www.graphviz.org/) (for Section 5 and 6)
 * [Redis](http://redis.io/) (for Section 7)
 * [MongoDB](https://www.mongodb.org/) (for Section 7)
 * [Activator](https://www.typesafe.com/community/core-tools/activator-and-sbt) (for Section 7)
