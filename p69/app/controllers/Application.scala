@@ -8,6 +8,7 @@ import play.api.mvc.{Action, Controller}
 import play.modules.reactivemongo.json._
 import play.modules.reactivemongo.json.collection._
 import play.modules.reactivemongo.{MongoController, ReactiveMongoApi, ReactiveMongoComponents}
+import play.twirl.api.Html
 import reactivemongo.api.Cursor
 
 import scala.concurrent.Future
@@ -15,8 +16,14 @@ import scala.concurrent.Future
 class Application @Inject()(val reactiveMongoApi: ReactiveMongoApi)
   extends Controller with MongoController with ReactiveMongoComponents {
 
+  import scala.xml.PrettyPrinter
+
+  val pp = new PrettyPrinter(80, 2)
+
   def index = Action {
-    Ok(views.html.index())
+    val body = views.html.index().body.trim
+    val str = pp.format(scala.xml.XML.loadString(body))
+    Ok(new Html(str))
   }
 
   def find(name: String, alias: String, tag: String) = Action.async {

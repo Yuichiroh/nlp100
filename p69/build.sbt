@@ -10,14 +10,10 @@ libraryDependencies ++= Seq(
   jdbc,
   cache,
   ws,
-  specs2 % Test
+  specs2 % Test,
+  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.2.play24",
+  "org.scala-lang.modules" %% "scala-xml" % "1.0.3"
 )
-
-libraryDependencies += "org.reactivemongo" %% "play2-reactivemongo" % "0.11.2.play24"
-
-libraryDependencies += "org.webjars" %% "webjars-play" % "2.4.0-1"
-
-libraryDependencies += "org.webjars" % "jquery" % "2.1.4"
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 
