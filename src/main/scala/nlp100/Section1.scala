@@ -79,8 +79,9 @@ object P5 {
 /** "paraparaparadise"と"paragraph"に含まれる文字bi-gramの集合を，それぞれ, XとYとして求め，XとYの和集合，積集合，補集合を求めよ．
   * さらに，'se'というbi-gramがXおよびYに含まれるかどうかを調べよ． */
 object P6 {
-  val x = P5.ngram(2)("paraparaparadise").toSet
-  val y = P5.ngram(2)("paragraph").toSet
+  val charBigram = P5.ngram[Char](2)
+  val x = charBigram("paraparaparadise").toSet
+  val y = charBigram("paragraph").toSet
 
   val intersection = x intersect y
   // or x & y
@@ -128,7 +129,7 @@ object P8 {
   * を与え，その実行結果を確認せよ． */
 object P9 {
   val randomized = (str: String) => str.split("\\s+").map {
-    case w if w.size > 4 => w.head + Random.shuffle(w.substring(1, w.length - 1).toIterator).mkString + w.last
+    case w if w.length > 4 => w.head + Random.shuffle(w.substring(1, w.length - 1).toIterator).mkString + w.last
     case w => w
   }.mkString(" ")
 
