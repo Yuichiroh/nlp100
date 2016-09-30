@@ -30,7 +30,7 @@ object P1 {
 
 /** 「パトカー」＋「タクシー」の文字を先頭から交互に連結して文字列「パタトクカシーー」を得よ． */
 object P2 {
-  val str = ("パトカー" zip "タクシー").flatMap(pt => Seq(pt._1, pt._2)).mkString
+  val str = ("パトカー" zip "タクシー").map { case (p, t) => s"$p$t" }.mkString
 
   def main(args: Array[String]): Unit =
     println(str)
